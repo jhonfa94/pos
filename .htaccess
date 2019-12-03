@@ -1,0 +1,10 @@
+# Ocultamos las carpeta del proyecto para que los usuarios no puedan ver el contenido
+Options All -Indexes
+
+# Habilitamos las urls amigables
+RewriteEngine On 
+# Especificamos que la url solo puede tener: 
+# guiones, caracteres de la alfanumericos en mayusculas y minusculas
+# al final se especifica la ruta 
+# con $1 toma cualquier valor de la ruta y lo convierte en una url amigable
+RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?ruta=$1
