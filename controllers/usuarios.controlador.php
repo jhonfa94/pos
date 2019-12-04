@@ -18,17 +18,21 @@ class ControladorUsuarios{
 				$item = "usuario";
 				$valor = $_POST["ingUsuario"];
 
-				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
-
+				$respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
+				
+			
 				if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $_POST["ingPassword"]){
 
 					$_SESSION["iniciarSesion"] = "ok";
 
-					echo '<script>
+					header("Location: inicio");
+					
+
+					/* echo '<script>
 
 						window.location = "inicio";
 
-					</script>';
+					</script>'; */
 
 				}else{
 

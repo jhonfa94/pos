@@ -58,7 +58,7 @@
                 <!-- Menu Footer-->
                 <li class="user-footer">
                     <a href="#" class="btn btn-default btn-flat">Perfil</a>
-                    <a href="#" class="btn btn-danger btn-flat float-right">Salir</a>
+                    <a href="salir" class="btn btn-danger btn-flat float-right">Salir</a>
                 </li>
             </ul>
         </li>
