@@ -2,7 +2,7 @@
 
 class ControladorPlantilla { 
 
-    function ctrPlantilla(){
+    static public function ctrPlantilla(){
         
         include 'views/plantilla.php';
 

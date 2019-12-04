@@ -166,7 +166,7 @@
                                     <i class="fas fa-lock"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="password" name="nuevoPassword" placeholder="Ingresar contraseña" required>
+                            <input class="form-control" type="text" name="nuevoPassword" placeholder="Ingresar contraseña" required>
                         </div>
                     </div>
 
@@ -178,7 +178,7 @@
                                     <i class="fas fa-users"></i>
                                 </span>
                             </div>
-                            <select class="form-control input-lg" name="nuevoPerfil" required>
+                            <select class="form-control input-lg" required>
                                 <option disabled selected>Seleccione el perfil</option>
                                 <option value="Administrador">Administrador</option>
                                 <option value="Especial">Especial</option>
@@ -198,6 +198,12 @@
                     </div>
 
 
+
+
+
+
+
+
                 </div>
 
                 <div class="modal-footer">
@@ -207,15 +213,6 @@
                         Guardar
                     </button>
                 </div>
-                
-                <?php 
-                    #Dentro del objeto de php, ejecutamos el objeto del controlador para enviar los datos a la db
-                    $crearUsuario = new ControladorUsuarios();
-                    $crearUsuario->ctrCrearUsuario();
-                ?>
-
-
-
             </form> <!-- FIN FORMULARIO -->
 
         </div>
