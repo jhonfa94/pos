@@ -44,7 +44,7 @@ class ModeloUsuarios{
 		}
 		
 
-		$stmt->close();
+		$stmt->close;
 		
 		$stmt = null;
 

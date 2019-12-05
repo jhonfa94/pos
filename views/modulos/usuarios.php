@@ -191,9 +191,9 @@
                     <!-- subir foto -->
                     <div class="form-group">
                         <div class="panel">SUBIR FOTO:</div>
-                        <input type="file" name="nuevaFoto" id="nuevaFoto" class="">
-                        <p>Peso máximo de la foto 200 MB</p>
-                        <img src="views/img/usuarios/default/anonymous.png" class="img-fluid" width="100">
+                        <input type="file" name="nuevaFoto" class="nuevaFoto" >
+                        <p>Peso máximo de la foto 2 MB</p>
+                        <img src="views/img/usuarios/default/anonymous.png" class="img-fluid previsualizar" width="100">
 
                     </div>
 
