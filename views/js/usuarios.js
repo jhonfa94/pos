@@ -71,22 +71,21 @@ $('.btnEditarUsuario').click(function (e) {
 
     var idUsuario = $(this).attr("idUsuario");
 
-    console.log(idUsuario);
+    //console.log(idUsuario);
 
     var datos = new FormData();
     datos.append("idUsuario", idUsuario);
 
     $.ajax({
         type: "POST",
-        url: "ajax/ajax.usuarios.php",
+        url: "ajax/usuarios.ajax.php",
         data: datos,
         cache: false,
         contentType: false,
         processData: false,
         dataType: "json",
         success: function (response) {
-            console.log("respuesta: " + response
-            );
+            //console.log("respuesta: " + response);
 
 
             $("#editarNombre").val(response.nombre);
@@ -97,7 +96,7 @@ $('.btnEditarUsuario').click(function (e) {
             $("#editarPerfil").html(response.perfil);
 
             if (response.foto != '') {
-                $(".previsualizar").attr("src",response.foto);
+                $(".previsualizar").attr("src", response.foto);
             }
 
 
@@ -108,4 +107,86 @@ $('.btnEditarUsuario').click(function (e) {
 
 });
 
+
+/* ===================== 
+  ACTIVAR USUARIO 
+========================= */
+$(document).on("click", ".btnActivar", function(){
+
+	var idUsuario = $(this).attr("idUsuario");
+    var estadoUsuario = $(this).attr("estadoUsuario");
+    
+    console.log("IdUsuario => "+idUsuario);
+    console.log("estadoUsuario => "+estadoUsuario);
+    
+
+	var datos = new FormData();
+ 	datos.append("activarId", idUsuario);
+  	datos.append("activarUsuario", estadoUsuario);
+
+  	$.ajax({
+
+	  url:"ajax/usuarios.ajax.php",
+	  method: "POST",
+	  data: datos,
+	  cache: false,
+      contentType: false,
+      processData: false,
+      success: function(respuesta){
+
+      	if(window.matchMedia("(max-width:767px)").matches){
+		
+      		 swal({
+		      	title: "El usuario ha sido actualizado",
+		      	type: "success",
+		      	confirmButtonText: "¡Cerrar!"
+		    	}).then(function(result) {
+		        
+		        	if (result.value) {
+
+		        	window.location = "usuarios";
+
+		        }
+
+		      });
+
+
+		}
+      }
+
+  	})
+
+  	if(estadoUsuario == 0){
+
+  		$(this).removeClass('btn-success');
+  		$(this).addClass('btn-danger');
+  		$(this).html('Desactivado');
+  		$(this).attr('estadoUsuario',1);
+
+  	}else{
+
+  		$(this).addClass('btn-success');
+  		$(this).removeClass('btn-danger');
+  		$(this).html('Activado');
+  		$(this).attr('estadoUsuario',0);
+
+  	}
+
+})
+
+
+/* ===================== 
+  REVISAR SI EL USUARIO YA ESTA REGISTRADO 
+========================= */ 
+
+$('#nuevoUsuario').change(function (e) { 
+    e.preventDefault();
+
+    var usuarios = $(this).val();
+
+    var datos = new FormData();
+
+    
+    
+});
 

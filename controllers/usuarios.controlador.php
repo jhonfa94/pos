@@ -29,23 +29,51 @@ class ControladorUsuarios
 
 				if ($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar) {
 
-					$_SESSION["iniciarSesion"] = "ok";
-					$_SESSION["id"] = $respuesta['id'];
-					$_SESSION["nombre"] = $respuesta['nombre'];
-					$_SESSION["usuario"] = $respuesta['usuario'];
-					$_SESSION["foto"] = $respuesta['foto'];
-					$_SESSION["perfil"] = $respuesta['perfil'];
+					if ($respuesta['estado'] == 1) {
+						$_SESSION["iniciarSesion"] = "ok";
+						$_SESSION["id"] = $respuesta['id'];
+						$_SESSION["nombre"] = $respuesta['nombre'];
+						$_SESSION["usuario"] = $respuesta['usuario'];
+						$_SESSION["foto"] = $respuesta['foto'];
+						$_SESSION["perfil"] = $respuesta['perfil'];
+
+						/* ===================== 
+						  REGISTRAMOS LA FECHA Y HORA PARA EL ULTIMO LOGIN 
+						========================= */ 
+						date_default_timezone_set('America/Bogota');
+						
+
+						$fecha = date('Y-m-d');
+						$hora = date('H:i:s');
+						$fechaActual = $fecha . " ". $hora;
+
+						$item1 = "ultimo_login";
+						$valor1= $fechaActual;
+
+						$item2 = "id";
+						$valor2= $respuesta['id'];
+
+						$ultimoLogin = ModeloUsuarios::mdlActualizarUsuario($tabla,$item1,$valor1,$item2,$valor2);
+						if ($ultimoLogin == 'ok') {
+							
+							header("Location: inicio");
+						}
+
+	
+	
+	
+						/* echo '<script>
+	
+							window.location = "inicio";
+	
+						</script>'; */
+						
+					}else{
+						echo '<br><div class="alert alert-danger">El usuario aún no está activado</div>';						
+					}
 
 
 
-					header("Location: inicio");
-
-
-					/* echo '<script>
-
-						window.location = "inicio";
-
-					</script>'; */
 				} else {
 
 					echo '<br><div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';

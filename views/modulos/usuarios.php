@@ -66,10 +66,18 @@
                                         echo '<td><img src="views/img/usuarios/default/anonymous.png" class="img-fluid" width="35"></td>';
                                     }
 
-                                echo ' 
-                                        <td>'.$value['perfil'].'</td>
-                                        <td><button class="btn btn-sm btn-success">Activado</button></td>
-                                        <td>'.$value['ultimo_login'].'</td>
+                                echo '<td>'.$value['perfil'].'</td>';
+
+                                    if ($value['estado'] != 0) {
+                                        echo '<td><button class="btn btn-sm btn-success btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0">Activado</button></td>';
+                                    } else {
+                                        echo '<td><button class="btn btn-sm btn-danger btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
+                                        
+                                    }
+                                    
+                                        
+                                       
+                                echo  '<td>'.$value['ultimo_login'].'</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Button group">
                                                 <button class="btn btn-sm btn-warning btnEditarUsuario" idUsuario="'.$value['id'].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fas fa-edit"></i></button>
@@ -160,7 +168,7 @@
                                     <i class="fas fa-key"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="nuevoUsuario" placeholder="Ingresar usuario" required>
+                            <input class="form-control" type="text" id="nuevoUsuario" name="nuevoUsuario" placeholder="Ingresar usuario" required>
                         </div>
                     </div>
 
