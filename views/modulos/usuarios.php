@@ -50,39 +50,45 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Jhon Fabio</td>
-                                <td>admin</td>
-                                <td><img src="views/img/usuarios/default/anonymous.png" class="img-fluid" width="35"></td>
-                                <td>Administrador</td>
-                                <td><button class="btn btn-sm btn-success">Activado</button></td>
-                                <td>2019-12-03 22:16:16</td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Button group">
-                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php
+                            $usuarios = ControladorUsuarios::ctrMostrarUsuarios(null,null);
 
-                            <tr>
-                                <td>1</td>
-                                <td>Jhon Fabio</td>
-                                <td>admin</td>
-                                <td><img src="views/img/usuarios/default/anonymous.png" class="img-fluid" width="35"></td>
-                                <td>Administrador</td>
-                                <td><button class="btn btn-sm btn-success">Activado</button></td>
-                                <td>2019-12-03 22:16:16</td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Button group">
-                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
+                            foreach ($usuarios as $key => $value) {
+                                echo '
+                                    <tr>
+                                        <td>'.$value['id'].'</td>
+                                        <td>'.$value['nombre'].'</td>
+                                        <td>'.$value['usuario'].'</td>
+                                        ';
+                                    if ($value['foto'] != '') {
+                                        echo '<td><img src="'.$value['foto'].'" class="img-fluid" width="35"></td>';
+                                    }else{
+                                        echo '<td><img src="views/img/usuarios/default/anonymous.png" class="img-fluid" width="35"></td>';
+                                    }
 
-                            <tr>
+                                echo ' 
+                                        <td>'.$value['perfil'].'</td>
+                                        <td><button class="btn btn-sm btn-success">Activado</button></td>
+                                        <td>'.$value['ultimo_login'].'</td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Button group">
+                                                <button class="btn btn-sm btn-warning btnEditarUsuario" idUsuario="'.$value['id'].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-sm btn-danger" data-toogle="modal"><i class="fas fa-times"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                ';
+                            }
+
+
+                            ?>
+
+
+
+                            
+
+                           <!--  <tr>
                                 <td>1</td>
                                 <td>Jhon Fabio</td>
                                 <td>admin</td>
@@ -96,7 +102,7 @@
                                         <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> -->
 
                         </tbody>
                     </table>
@@ -191,7 +197,7 @@
                     <!-- subir foto -->
                     <div class="form-group">
                         <div class="panel">SUBIR FOTO:</div>
-                        <input type="file" name="nuevaFoto" class="nuevaFoto" >
+                        <input type="file" name="nuevaFoto" class="nuevaFoto">
                         <p>Peso máximo de la foto 2 MB</p>
                         <img src="views/img/usuarios/default/anonymous.png" class="img-fluid previsualizar" width="100">
 
@@ -207,11 +213,124 @@
                         Guardar
                     </button>
                 </div>
-                
-                <?php 
-                    #Dentro del objeto de php, ejecutamos el objeto del controlador para enviar los datos a la db
-                    $crearUsuario = new ControladorUsuarios();
-                    $crearUsuario->ctrCrearUsuario();
+
+                <?php
+                #Dentro del objeto de php, ejecutamos el objeto del controlador para enviar los datos a la db
+                $crearUsuario = new ControladorUsuarios();
+                $crearUsuario->ctrCrearUsuario();
+                ?>
+
+
+
+            </form> <!-- FIN FORMULARIO -->
+
+        </div>
+    </div>
+</div>
+
+
+<!--================================================ 
+        MODAL PARA EDITAR USUARIO      
+================================================-->
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <form method="post" enctype="multipart/form-data">
+                <!-- INICIO DEL FORMULARIO -->
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modificar usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <!-- Nombre -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" id="editarNombre" name="editarNombre" value="" required>
+                        </div>
+                    </div>
+
+                    <!-- Usuario -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fas fa-key"></i>
+                                </span>
+                            </div>
+                            <input class="form-control" type="text" id="editarUsuario" name="editarUsuario"  required readonly>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </div>
+                            <input class="form-control" type="password" name="editarPassword" placeholder="Escriba la nueva contraseña " >
+
+                            <input type="hidden" name="passwordActual" id="passwordActual" >
+                        </div>
+                    </div>
+
+                    <!-- PERFIL -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fas fa-users"></i>
+                                </span>
+                            </div>
+                            <select class="form-control input-lg" name="editarPerfil" required>
+                                <option id="editarPerfil"></option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Especial">Especial</option>
+                                <option value="Vendedor">Vendedor</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <!-- subir foto -->
+                    <div class="form-group">
+                        <div class="panel">SUBIR FOTO:</div>
+                        <input type="file" name="editarFoto" class="nuevaFoto">
+                        <p>Peso máximo de la foto 2 MB</p>
+                        <img src="views/img/usuarios/default/anonymous.png" class="img-fluid previsualizar" width="100">
+
+                        <input type="hidden" name="fotoActual" id="fotoActual">
+
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i>
+                        Modificar usuario
+                    </button>
+                </div>
+
+                <?php
+                #Dentro del objeto de php, ejecutamos el objeto del controlador para enviar los datos a la db
+                $editarUsuario = new ControladorUsuarios();
+                $editarUsuario->ctrEditarUsuario();
                 ?>
 
 
