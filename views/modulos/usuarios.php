@@ -81,7 +81,7 @@
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Button group">
                                                 <button class="btn btn-sm btn-warning btnEditarUsuario" idUsuario="'.$value['id'].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fas fa-edit"></i></button>
-                                                <button class="btn btn-sm btn-danger btnEliminarUsuario" data-toogle="modal"><i class="fas fa-times"></i></button>
+                                                <button class="btn btn-sm btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fas fa-times"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -224,6 +224,7 @@
                 #Dentro del objeto de php, ejecutamos el objeto del controlador para enviar los datos a la db
                 $crearUsuario = new ControladorUsuarios();
                 $crearUsuario->ctrCrearUsuario();
+                
                 ?>
 
 
@@ -346,3 +347,8 @@
         </div>
     </div>
 </div>
+
+<?php 
+    $borrarUsuario = new ControladorUsuarios();
+    $borrarUsuario->ctrBorrarUsuario();
+?>

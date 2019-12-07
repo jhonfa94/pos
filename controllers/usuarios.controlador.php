@@ -39,41 +39,37 @@ class ControladorUsuarios
 
 						/* ===================== 
 						  REGISTRAMOS LA FECHA Y HORA PARA EL ULTIMO LOGIN 
-						========================= */ 
+						========================= */
 						date_default_timezone_set('America/Bogota');
-						
+
 
 						$fecha = date('Y-m-d');
 						$hora = date('H:i:s');
-						$fechaActual = $fecha . " ". $hora;
+						$fechaActual = $fecha . " " . $hora;
 
 						$item1 = "ultimo_login";
-						$valor1= $fechaActual;
+						$valor1 = $fechaActual;
 
 						$item2 = "id";
-						$valor2= $respuesta['id'];
+						$valor2 = $respuesta['id'];
 
-						$ultimoLogin = ModeloUsuarios::mdlActualizarUsuario($tabla,$item1,$valor1,$item2,$valor2);
+						$ultimoLogin = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
 						if ($ultimoLogin == 'ok') {
-							
+
 							header("Location: inicio");
 						}
 
-	
-	
-	
+
+
+
 						/* echo '<script>
 	
 							window.location = "inicio";
 	
 						</script>'; */
-						
-					}else{
-						echo '<br><div class="alert alert-danger">El usuario aún no está activado</div>';						
+					} else {
+						echo '<br><div class="alert alert-danger">El usuario aún no está activado</div>';
 					}
-
-
-
 				} else {
 
 					echo '<br><div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
@@ -163,6 +159,7 @@ class ControladorUsuarios
 				);
 
 				$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
+				
 
 				if ($respuesta == 'ok') {
 					echo "
@@ -172,7 +169,6 @@ class ControladorUsuarios
 								title: '¡El usuario ha sido guardado correctamente!',						
 								showConfirmButton: true,
 								confirmButtonText: 'Cerrar',
-								closeOnConfirm: false
 								
 							}).then((result)=>{
 
@@ -183,6 +179,20 @@ class ControladorUsuarios
 							})
 						</script>
 					";
+				} else {
+					echo "
+						<script>
+							Swal.fire({
+								icon: 'error',
+								title: 'Problemas al guardar el usuario',						
+								showConfirmButton: true,
+								confirmButtonText: 'Cerrar',
+								closeOnConfirm: false
+								
+							})
+						</script>
+					";
+					
 				}
 			} else {
 				echo "
@@ -234,7 +244,7 @@ class ControladorUsuarios
 				======================= */
 
 				$ruta = $_POST['fotoActual'];
-				if (isset($_FILES['editarFoto']['tmp_name']) && !empty($_FILES['editarFoto']['tmp_name']) ) {
+				if (isset($_FILES['editarFoto']['tmp_name']) && !empty($_FILES['editarFoto']['tmp_name'])) {
 					/* list nos permite crear un nuevo array con los indices que se le asignen */
 					list($ancho, $alto) = getimagesize($_FILES['editarFoto']['tmp_name']);
 
@@ -245,12 +255,12 @@ class ControladorUsuarios
 						  CREAMOS DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO 
 						========================= */
 
-					$directorio = "views/img/usuarios/" .$_POST['editarUsuario'];
+					$directorio = "views/img/usuarios/" . $_POST['editarUsuario'];
 
 					/* =====================
 						  PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
 						======================= */
-					if (!empty($_POST['fotoActual']) ) {
+					if (!empty($_POST['fotoActual'])) {
 						# Eliminamos la foto actual si se tienen registro de las fotos
 						unlink($_POST['fotoActual']);
 					} else {
@@ -321,10 +331,9 @@ class ControladorUsuarios
 							</script>
 						";
 					}
-				}else{
+				} else {
 
 					$encriptar = $_POST['passwordActual'];
-
 				}
 
 				# Enviamos los datos al modelo
@@ -337,7 +346,7 @@ class ControladorUsuarios
 				);
 
 				# Solicitamos una respuesta al modelo 
-				$respuesta = ModeloUsuarios::mdlEditarUsuario($tabla,$datos);
+				$respuesta = ModeloUsuarios::mdlEditarUsuario($tabla, $datos);
 
 				if ($respuesta == 'ok') {
 					echo "
@@ -359,9 +368,7 @@ class ControladorUsuarios
 						</script>
 					";
 				}
-
-
-			}else{
+			} else {
 				echo "
 				<script>
 					Swal.fire({
@@ -380,6 +387,48 @@ class ControladorUsuarios
 					})
 				</script>
 				";
+			}
+		}
+	}
+
+	/*=============================================
+	BORRAR USUARIO
+	=============================================*/
+
+	static public function ctrBorrarUsuario()
+	{
+
+		if (isset($_GET["idUsuario"])) {
+
+			$tabla = "usuarios";
+			$datos = $_GET["idUsuario"];
+
+			if ($_GET["fotoUsuario"] != "") {
+
+				unlink($_GET["fotoUsuario"]);
+				rmdir('vistas/img/usuarios/' . $_GET["usuario"]);
+			}
+
+			$respuesta = ModeloUsuarios::mdlBorrarUsuario($tabla, $datos);
+
+			if ($respuesta == "ok") {
+
+				echo '<script>
+
+				swal({
+					  icon: "success",
+					  title: "El usuario ha sido borrado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+								if (result.value) {
+
+								window.location = "usuarios";
+
+								}
+							})
+
+				</script>';
 			}
 		}
 	}
