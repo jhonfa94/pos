@@ -48,6 +48,22 @@ class AjaxUsuarios{
 
     }
 
+    /* =====================
+      VALIDAR NO REPETIR USUARIO
+    ======================= */
+    public $validarUsuario;
+    
+    public function ajaxValidarUsuario(){
+
+        $item = "usuario"; 
+        $valor = $this->validarUsuario;
+
+        $respuesta = ControladorUsuarios::ctrMostrarUsuarios($item,$valor);
+
+        echo json_encode($respuesta);
+
+    }
+
 
 
 
@@ -83,8 +99,16 @@ if (isset($_POST['activarUsuario'])) {
     #EJECUTAMOS EL METODO
     $activarUsuario->ajaxActivarUsuario();
 
+}
 
+/* =====================
+  VALIDAR NO REPETIR USUARIO
+======================= */
+if(isset($_POST['validarUsuario'])){  
 
+  $validarUsuario = new AjaxUsuarios();
+  $validarUsuario->validarUsuario = $_POST['validarUsuario'];
+  $validarUsuario->ajaxValidarUsuario();
 
 }
 

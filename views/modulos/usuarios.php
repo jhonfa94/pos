@@ -81,7 +81,7 @@
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Button group">
                                                 <button class="btn btn-sm btn-warning btnEditarUsuario" idUsuario="'.$value['id'].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fas fa-edit"></i></button>
-                                                <button class="btn btn-sm btn-danger" data-toogle="modal"><i class="fas fa-times"></i></button>
+                                                <button class="btn btn-sm btn-danger btnEliminarUsuario" data-toogle="modal"><i class="fas fa-times"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -145,8 +145,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
-
 
                     <!-- Nombre -->
                     <div class="form-group">
