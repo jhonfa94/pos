@@ -45,31 +45,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php 
-                            $item = null;
-                            $valor = null;
-                            $categorias = ControladorCategorias::ctrMostrarCategorias($item,$valor);
-                            #var_dump($categorias);
-
-                            foreach ($categorias as $key => $value) {
-                                echo '
-                                <tr>
-                                    <td>'.($key+1).'</td>
-                                    <td>'.$value['categoria'].'</td>                                
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="Button group">
-                                            <button class="btn btn-sm btn-warning btnEditarCategoria" idCategoria="'.$value['id'].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-sm btn-danger btnEliminarCategoria" idCategoria="'.$value['id'].'"><i class="fas fa-times"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                ';
-                            }
-                        
-                        ?>
-
-                           <!--  <tr>
+                            <tr>
                                 <td>1</td>
                                 <td>EQUIPO ELECTROMECÁNICO</td>                                
                                 <td>
@@ -78,9 +54,18 @@
                                         <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
                                     </div>
                                 </td>
-                            </tr> -->
+                            </tr>
 
-                            
+                            <tr>
+                                <td>2</td>
+                                <td>EQUIPO ELECTROMECÁNICO</td>                                
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Button group">
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
 
                             
 
@@ -120,7 +105,7 @@
 
 
 
-                    <!-- Categoria -->
+                    <!-- Nombre -->
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-append">
@@ -141,86 +126,8 @@
                         Guardar
                     </button>
                 </div>
-
-                <?php 
-                
-                    $crearCategoria = new ControladorCategorias();
-                    $crearCategoria->ctrCrearCategoria();
-
-
-                ?>
-
-
             </form> <!-- FIN FORMULARIO -->
 
         </div>
     </div>
 </div>
-
-
-<!--================================================ 
-        MODAL PARA EDITAR CATEGORIA    
-================================================-->
-<div class="modal fade" id="modalEditarCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-
-            <form method="post" >
-                <!-- INICIO DEL FORMULARIO -->
-
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar categoría</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-
-
-                    <!-- Categoria -->
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fas fa-th"></i>
-                                </span>
-                            </div>
-                            <input class="form-control" type="text" name="editarCategoria" id="editarCategoria"  required>
-                            <input type="hidden" name="idCategoria" id="idCategoria">
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success">
-                        <i class="fas fa-save"></i>
-                        Guardar cambios
-                    </button>
-                </div>
-
-                <?php 
-                
-                    $editarCategoria = new ControladorCategorias();
-                    $editarCategoria->ctrEditarCategoria();
-
-
-                ?>
-
-
-            </form> <!-- FIN FORMULARIO -->
-
-        </div>
-    </div>
-</div>
-
-
-<?php 
-    /* =====================
-      BORRAR CATEGORIA
-    ======================= */
-    $borrarCategoria = new ControladorCategorias();
-    $borrarCategoria->ctrBorrarCategoria();
-?>

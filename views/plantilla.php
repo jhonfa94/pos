@@ -127,6 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <script src='views/js/plantilla.js'></script>
   <script src='views/js/usuarios.js'></script>
+  <script src='views/js/categorias.js'></script>
 </body>
 
 </html>
