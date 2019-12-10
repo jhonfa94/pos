@@ -36,13 +36,13 @@
 
                 <div class="col-sm-12">
 
-                    <table class="table table-sm table-striped table-bordered table-hover tablas dt-responsive w-100" >
+                    <table class="table table-sm table-striped table-bordered table-hover dt-responsive tablaProductos  " width="100%">
                         <thead class="thead-light">
                             <tr>
-                                <th style="width:10px;">#</th>
+                                <th style="width:10px">#</th>
                                 <th>Imagen</th>
                                 <th>Código</th>
-                                <th>Desripción</th>
+                                <th>Descripción</th>
                                 <th>Categoría</th>
                                 <th>Stock</th>
                                 <th>Precio de compra</th>
@@ -50,12 +50,13 @@
                                 <th>Agregado</th>
                                 <th>Acciones</th>
                             </tr>
+
                         </thead>
                         <tbody>
 
-                        <?php 
+                            <?php
 
-                            $item = null;
+                            /* $item = null;
                             $valor = null; 
 
                             $productos = ControladorProductos::ctrMostrarProductos($item,$valor);
@@ -88,11 +89,11 @@
                                     </tr>
                                 
                                 ';
-                            }
+                            } */
 
-                        
-                        
-                        ?>
+
+
+                            ?>
 
                             <!-- <tr>
                                 <td>1</td>
@@ -112,7 +113,7 @@
                                 </td>
                             </tr> -->
 
-                          
+
 
 
                         </tbody>
@@ -246,7 +247,7 @@
                                     <label for="checkboxPrimary1">
                                         Utilizar porcentaje
                                     </label>
-                                </div>                                
+                                </div>
                             </div>
                         </div> <!-- col-sm-12 -->
 
