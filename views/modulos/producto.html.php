@@ -36,7 +36,7 @@
 
                 <div class="col-sm-12">
 
-                    <table class="table table-sm table-striped table-bordered table-hover tablas dt-responsive w-100" >
+                    <table class="table table-sm table-striped table-bordered table-hover tablas dt-responsive">
                         <thead class="thead-light">
                             <tr>
                                 <th style="width:10px;">#</th>
@@ -53,48 +53,7 @@
                         </thead>
                         <tbody>
 
-                        <?php 
-
-                            $item = null;
-                            $valor = null; 
-
-                            $productos = ControladorProductos::ctrMostrarProductos($item,$valor);
-                            #var_dump($productos);
-
-                            foreach ($productos as $key => $value) {
-                                echo '
-                                    <tr>
-                                        <td>'.($key+1).'</td>
-                                        <td><img src="views/img/productos/default/anonymous.png" class="img-fluid" width="40"></td>
-                                        <td>'.$value['codigo'].'</td>
-                                        <td>'.$value['descripcion'].'</td>
-                                    ';
-                                    $item = "id";
-                                    $valor = $value['id_categoria'];
-                                    $categorias = ControladorCategorias::ctrMostrarCategorias($item,$valor);
-
-
-                                echo'  <td>'.$categorias['categoria'].'</td>
-                                        <td>'.$value['stock'].'</td>
-                                        <td>$ '.$value['precio_compra'].'</td>
-                                        <td>$ '.$value['precio_venta'].'</td>
-                                        <td>'.$value['fecha'].'</td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="Button group">
-                                                <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
-                                                <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                
-                                ';
-                            }
-
-                        
-                        
-                        ?>
-
-                            <!-- <tr>
+                            <tr>
                                 <td>1</td>
                                 <td><img src="views/img/productos/default/anonymous.png" class="img-fluid" width="40"></td>
                                 <td>0001</td>
@@ -110,9 +69,26 @@
                                         <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
                                     </div>
                                 </td>
-                            </tr> -->
+                            </tr>
 
-                          
+                            <tr>
+                                <td>1</td>
+                                <td><img src="views/img/productos/default/anonymous.png" class="img-fluid" width="40"></td>
+                                <td>0001</td>
+                                <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, alias?</td>
+                                <td>Lorem Ipsum</td>
+                                <td>20</td>
+                                <td>$ 5.00</td>
+                                <td>$ 10.00</td>
+                                <td>2019-12-12 09:22:00</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Button group">
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+
 
 
                         </tbody>

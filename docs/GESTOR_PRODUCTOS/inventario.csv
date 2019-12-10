@@ -1,0 +1,60 @@
+1;101;Aspiradora Industrial ;;20;1500;2100
+1;102;Plato Flotante para Allanadora;;20;4500;6300
+1;103;Compresor de Aire para pintura;;20;3000;4200
+1;104;Cortadora de Adobe sin Disco ;;20;4000;5600
+1;105;Cortadora de Piso sin Disco ;;20;1540;2156
+1;106;Disco Punta Diamante ;;20;1100;1540
+1;107;Extractor de Aire ;;20;1540;2156
+1;108;Guadañadora ;;20;1540;2156
+1;109;Hidrolavadora Eléctrica ;;20;2600;3640
+1;110;Hidrolavadora Gasolina;;20;2210;3094
+1;111;Motobomba a Gasolina;;20;2860;4004
+1;112;Motobomba Eléctrica;;20;2400;3360
+1;113;Sierra Circular ;;20;1100;1540
+1;114;Disco de tugsteno para Sierra circular;;20;4500;6300
+1;115;Soldador Electrico ;;20;1980;2772
+1;116;Careta para Soldador;;20;4200;5880
+1;117;Torre de iluminacion ;;20;1800;2520
+2;201;Martillo Demoledor de Piso 110V;;20;5600;7840
+2;202;Muela o cincel martillo demoledor piso;;20;9600;13440
+2;203;Taladro Demoledor de muro 110V;;20;3850;5390
+2;204;Muela o cincel martillo demoledor muro;;20;9600;13440
+2;205;"Taladro Percutor de 1/2"" Madera y Metal";;20;8000;11200
+2;206;Taladro Percutor SDS Plus 110V;;20;3900;5460
+2;207;Taladro Percutor SDS Max 110V (Mineria);;20;4600;6440
+3;301;Andamio colgante;;20;1440;2016
+3;302;Distanciador andamio colgante;;20;1600;2240
+3;303;Marco andamio modular ;;20;900;1260
+3;304;Marco andamio tijera;;20;100;140
+3;305;Tijera para andamio;;20;162;226,8
+3;306;Escalera interna para andamio;;20;270;378
+3;307;Pasamanos de seguridad;;20;75;105
+3;308;Rueda giratoria para andamio;;20;168;235,2
+3;309;Arnes de seguridad;;20;1750;2450
+3;310;Eslinga para arnes;;20;175;245
+3;311;Plataforma Metálica;;20;420;588
+4;401;Planta Electrica Diesel 6 Kva;;20;3500;4900
+4;402;Planta Electrica Diesel 10 Kva;;20;3550;4970
+4;403;Planta Electrica Diesel 20 Kva;;20;3600;5040
+4;404;Planta Electrica Diesel 30 Kva;;20;3650;5110
+4;405;Planta Electrica Diesel 60 Kva;;20;3700;5180
+4;406;Planta Electrica Diesel 75 Kva;;20;3750;5250
+4;407;Planta Electrica Diesel 100 Kva;;20;3800;5320
+4;408;Planta Electrica Diesel 120 Kva;;20;3850;5390
+5;501;Escalera de Tijera Aluminio ;;20;350;490
+5;502;Extension Electrica ;;20;370;518
+5;503;Gato tensor;;20;380;532
+5;504;Lamina Cubre Brecha ;;20;380;532
+5;505;Llave de Tubo;;20;480;672
+5;506;Manila por Metro;;20;600;840
+5;507;Polea 2 canales;;20;900;1260
+5;508;Tensor;;20;100;140
+5;509;Bascula ;;20;130;182
+5;510;Bomba Hidrostatica;;20;770;1078
+5;511;Chapeta;;20;660;924
+5;512;Cilindro muestra de concreto;;20;400;560
+5;513;Cizalla de Palanca;;20;450;630
+5;514;Cizalla de Tijera;;20;580;812
+5;515;Coche llanta neumatica;;20;420;588
+5;516;Cono slump;;20;140;196
+5;517;Cortadora de Baldosin;;20;930;1302
