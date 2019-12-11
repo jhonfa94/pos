@@ -169,7 +169,7 @@
                                         <i class="fas fa-arrow-up"></i>
                                     </span>
                                 </div>
-                                <input class="form-control" type="number" name="nuevoPrecioCompra" min="0" placeholder="Precio de compra" required>
+                                <input class="form-control" type="number" step="any" id="nuevoPrecioCompra" name="nuevoPrecioCompra" min="0" placeholder="Precio de compra" required>
                             </div>
 
                         </div>
@@ -184,7 +184,7 @@
                                         <i class="fas fa-arrow-down"></i>
                                     </span>
                                 </div>
-                                <input class="form-control" type="number" name="nuevoPrecioVenta" min="0" placeholder="Precio de venta" required>
+                                <input class="form-control" type="number" step="any" id="nuevoPrecioVenta" name="nuevoPrecioVenta" min="0" placeholder="Precio de venta" required>
 
                             </div>
 
@@ -198,7 +198,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <div class="icheck-primary d-inline">
-                                    <input type="checkbox" id="checkboxPrimary1" checked>
+                                    <input type="checkbox" id="checkboxPrimary1" class="porcentaje" ><!-- checked -->
                                     <label for="checkboxPrimary1">
                                         Utilizar porcentaje
                                     </label>

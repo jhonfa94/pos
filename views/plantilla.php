@@ -55,6 +55,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Sweearlet2 -->
   <script src="views/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+ 
+
+
 
 
 </head>

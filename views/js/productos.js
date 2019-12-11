@@ -80,3 +80,74 @@ $("#nuevaCategoria").change(function(){
 	});
 
 });
+
+/* ===================== 
+  AGREGANDO PRECIO DE VENTA 
+========================= */
+$("#nuevoPrecioCompra").change(function(){	
+
+	if ($('.porcentaje').prop("checked")) {
+		var valorPorcentaje = $(".nuevoPorcentaje").val();
+		//console.log("Valor porcentaje: "+valorPorcentaje);
+
+		var porcentaje = Number(($("#nuevoPrecioCompra").val() * valorPorcentaje / 100)) + Number($("#nuevoPrecioCompra").val());
+		//console.log("Porcentaje => "+porcentaje);
+		
+		$("#nuevoPrecioVenta").val(porcentaje);
+		$("#nuevoPrecioVenta").prop("readonly",true);	
+		
+	} 
+
+});
+
+/* ===================== 
+  CAMBIO DE PORCENTAJE 
+========================= */ 
+
+$(".nuevoPorcentaje").change(function(){
+
+	if ($('.porcentaje').prop("checked")) {
+		if ($('.porcentaje').prop("checked")) {
+			var valorPorcentaje = $(".nuevoPorcentaje").val();
+				
+			var porcentaje = Number(($("#nuevoPrecioCompra").val() * valorPorcentaje / 100)) + Number($("#nuevoPrecioCompra").val());
+			//console.log("Porcentaje => "+porcentaje);			
+			$("#nuevoPrecioVenta").val(porcentaje);
+			$("#nuevoPrecioVenta").prop("readonly",true);				
+		} 
+	} 
+
+});
+
+/* ===================== 
+  ifUnchecked  y ifChecked son funciones el plugin icheck 
+========================= */ 
+$(".porcentaje").on( 'change', function() {
+    if( $(this).is(':checked') ) {
+        // Hacer algo si el checkbox ha sido seleccionado
+		//alert("El checkbox con valor " + $(this).val() + " ha sido seleccionado");
+		$("#nuevoPrecioVenta").prop("readonly",true);
+    } else {
+        // Hacer algo si el checkbox ha sido deseleccionado
+		//alert("El checkbox con valor " + $(this).val() + " ha sido deseleccionado");
+		$("#nuevoPrecioVenta").prop("readonly",false);
+    }
+});
+
+
+
+/* $(".porcentaje").on("ifUnchecked",function(){
+	$("#nuevoPrecioVenta").prop("readonly",false);	
+});
+$(".porcentaje").on("ifChecked",function(){
+	$("#nuevoPrecioVenta").prop("readonly",true);	
+});
+ */
+
+
+
+
+
+
+
+
