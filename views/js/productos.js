@@ -1,7 +1,7 @@
 /* ===================== 
   CARGAR LA TABLA DINAMICA DE PRODUCTOS
 ========================= */ 
-$.ajax({
+/* $.ajax({
     type: "GET",
     url: "ajax/datatable-productos.ajax.php",
     
@@ -9,7 +9,7 @@ $.ajax({
         console.log("respuesta: "+ response);
         
     }
-});
+}); */
 
 $('.tablaProductos').DataTable( {
     "ajax": "ajax/datatable-productos.ajax.php",
@@ -44,3 +44,39 @@ $('.tablaProductos').DataTable( {
 	}
 
 } );
+
+/*================================================ 
+	CAPTURANDO LA CATEWGORIA PARA ASIGNAR EL CÓDIGO   
+================================================*/
+$("#nuevaCategoria").change(function(){
+	
+	var idCategoria = $(this).val();
+
+	var datos = new FormData();
+  	datos.append("idCategoria", idCategoria);
+	
+	$.ajax({
+		type: "POST",
+		url: "ajax/productos.ajax.php",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType:"json",
+		success: function (response) {
+
+			//Si la respuesta viene vacia
+			if (!response) {
+				var nuevoCodigo = idCategoria+"01";
+				$('#nuevoCodigo').val(nuevoCodigo);				
+			}else{
+				var nuevoCodigo = Number(response.codigo)+1;
+				$('#nuevoCodigo').val(nuevoCodigo);
+
+			}
+			
+
+		}
+	});
+
+});

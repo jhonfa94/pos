@@ -54,68 +54,6 @@
                         </thead>
                         <tbody>
 
-                            <?php
-
-                            /* $item = null;
-                            $valor = null; 
-
-                            $productos = ControladorProductos::ctrMostrarProductos($item,$valor);
-                            #var_dump($productos);
-
-                            foreach ($productos as $key => $value) {
-                                echo '
-                                    <tr>
-                                        <td>'.($key+1).'</td>
-                                        <td><img src="views/img/productos/default/anonymous.png" class="img-fluid" width="40"></td>
-                                        <td>'.$value['codigo'].'</td>
-                                        <td>'.$value['descripcion'].'</td>
-                                    ';
-                                    $item = "id";
-                                    $valor = $value['id_categoria'];
-                                    $categorias = ControladorCategorias::ctrMostrarCategorias($item,$valor);
-
-
-                                echo'  <td>'.$categorias['categoria'].'</td>
-                                        <td>'.$value['stock'].'</td>
-                                        <td>$ '.$value['precio_compra'].'</td>
-                                        <td>$ '.$value['precio_venta'].'</td>
-                                        <td>'.$value['fecha'].'</td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="Button group">
-                                                <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
-                                                <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                
-                                ';
-                            } */
-
-
-
-                            ?>
-
-                            <!-- <tr>
-                                <td>1</td>
-                                <td><img src="views/img/productos/default/anonymous.png" class="img-fluid" width="40"></td>
-                                <td>0001</td>
-                                <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, alias?</td>
-                                <td>Lorem Ipsum</td>
-                                <td>20</td>
-                                <td>$ 5.00</td>
-                                <td>$ 10.00</td>
-                                <td>2019-12-12 09:22:00</td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Button group">
-                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
-                                    </div>
-                                </td>
-                            </tr> -->
-
-
-
-
                         </tbody>
                     </table>
 
@@ -150,6 +88,38 @@
                 </div>
                 <div class="modal-body">
 
+                    <!-- ENTRADA PARA SELECCIONAR LA CATEGORÍA -->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fas fa-th"></i>
+                                </span>
+                            </div>
+                            <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
+                                <option disabled selected>Seleccione la categoría</option>
+                                <?php 
+                                    $item = null;
+                                    $valor = null;
+
+                                    $categorias = ControladorCategorias::ctrMostrarCategorias($item,$valor);
+
+                                    foreach ($categorias as $key => $value) {
+                                        echo '
+                                            <option value="'.$value['id'].'">'.$value['categoria'].'</option>
+                                        '; 
+                                    }
+
+
+
+
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+
+
+
                     <!-- ENTRADA PARA EL CÓDIGO -->
                     <div class="form-group">
                         <div class="input-group">
@@ -158,7 +128,7 @@
                                     <i class="fas fa-code"></i>
                                 </span>
                             </div>
-                            <input class="form-control" type="text" name="nuevoCodigo" placeholder="Ingresar código" required>
+                            <input class="form-control" type="text" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar código" required readonly>
                         </div>
                     </div>
 
@@ -175,22 +145,7 @@
                     </div>
 
 
-                    <!-- ENTRADA PARA SELECCIONAR LA CATEGORÍA -->
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fas fa-th"></i>
-                                </span>
-                            </div>
-                            <select class="form-control input-lg" name="nuevaCategoria" required>
-                                <option disabled selected>Seleccione la categoría</option>
-                                <option value="Taladros">Taladros</option>
-                                <option value="Andamios">Andamios</option>
-                                <option value="Equipos ">Equipos </option>
-                            </select>
-                        </div>
-                    </div>
+
 
                     <!-- ENTRADA PARA EL STOCK -->
                     <div class="form-group">

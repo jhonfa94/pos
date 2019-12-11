@@ -87,20 +87,14 @@ class TablaProductos
                     $stock = "<button class='btn btn-warning'>".$productos[$i]['stock']."</button>";                    
                 }else {                    
                     $stock = "<button class='btn btn-success'>".$productos[$i]['stock']."</button>";
-                }
-                
+                }                
                 
 
                 /* ===================== 
                   TRAEMOS LAS ACCIONES 
                 ========================= */ 
                 $botones = "<div class='btn-group' role='group' aria-label='Button group'><button class='btn btn-sm btn-warning btnEditarProducto' idProducto='".$productos[$i]['id']."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fas fa-edit'></i></button><button class='btn btn-sm btn-danger btnEliminarProducto' idProducto='".$productos[$i]['id']."' codigo='".$productos[$i]['codigo']."' imagen='".$productos[$i]['imagen']."' ><i class='fas fa-times'></i></button></div>";
-                
-                
-
-
-
-
+                                
                 $datosJson .='
                     [
                         "'.($i+1).'",
