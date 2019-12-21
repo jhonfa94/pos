@@ -84,7 +84,7 @@ $("#nuevaCategoria").change(function(){
 /* ===================== 
   AGREGANDO PRECIO DE VENTA 
 ========================= */
-$("#nuevoPrecioCompra").change(function(){	
+$("#nuevoPrecioCompra, #editarPrecioCompra").change(function(){	
 
 	if ($('.porcentaje').prop("checked")) {
 		var valorPorcentaje = $(".nuevoPorcentaje").val();
@@ -229,8 +229,8 @@ $(".tablaProductos tbody").on("click","button.btnEditarProducto",function(){
 				processData:false,
 				dataType: "json",
 				success: function (response) {
-					$("#editarCategoria").val(respuesta.id);
-                  	$("#editarCategoria").html(respuesta.categoria);
+					$("#editarCategoria").val(response.id);
+                  	$("#editarCategoria").html(response.categoria);
 					
 				}
 			});
@@ -254,7 +254,37 @@ $(".tablaProductos tbody").on("click","button.btnEditarProducto",function(){
            }
 			
 		}
-	});
-
-	
+	});	
 });
+
+/*================================================ 
+   ELIMINAR PRODUCTO   
+================================================*/
+$(".tablaProductos tbody").on("click","button.btnEliminarProducto",function(){
+	 
+	var idProducto = $(this).attr("idProducto");
+	var codigo = $(this).attr("codigo");
+	var imagen = $(this).attr("imagen");
+
+	Swal.fire({
+		icon: "warning",
+		title: "¡¿Está seguro de borrar el producto ?  ",
+		text: "¡Si no lo está puede cancelar la acción  ",
+		showConfirmButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor:'#d33',
+		cancelButtonText: 'Cancelar',
+		confirmButtonText: "Si,borrar producto",
+		closeOnConfirm: false
+	  }).then((result) => {
+		  if (result.value) {
+			window.location = "index.php?ruta=productos&idProducto="+idProducto+"&imagen="+imagen+"&codigo="+codigo
+
+		  }
+	  },
+
+
+
+
+
+)});

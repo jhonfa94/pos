@@ -286,7 +286,7 @@
                                 </span>
                             </div>
                             <select class="form-control input-lg"  name="editarCategoria" required readonly>
-                                <option did="editarCategoria"></option>                                
+                                <option id="editarCategoria"></option>                                
                             </select>
                         </div>
                     </div>
@@ -395,20 +395,13 @@
                     <!-- subir foto -->
                     <div class="form-group">
                         <div class="panel">SUBIR IMAGEN:</div>
-                        <input type="file" name="nuevaImagen" id="editarImagen" class="nuevaImagen">
+                        <input type="file" name="editarImagen" id="editarImagen" class="nuevaImagen">
                         <p>Peso máximo de la foto 2 MB</p>
                         <img src="views/img/productos/default/anonymous.png" class="img-fluid previsualizar" width="100">
 
                         <input type="hidden" name="imagenActual" id="imagenActual">
 
                     </div>
-
-
-
-
-
-
-
 
                 </div>
 
@@ -424,8 +417,8 @@
                     /* =====================
                     SE EJECUTA EL COTROLADOR PARA GUARDAR LOS CAMBIOS DEL PRODUCTO
                     ======================= */
-                    /* $productos = new ControladorProductos();
-                    $productos->ctrEditarProducto(); */
+                    $editarProducto = new ControladorProductos();
+                    $editarProducto->ctrEditarProducto();
                 
                 ?>
 
@@ -434,3 +427,16 @@
         </div>
     </div>
 </div>
+
+<?php 
+/* =====================
+  SE EJECUTA EL METODO PARA BORRAR EL PRODUCTO
+======================= */
+$eliminarProducto = new ControladorProductos();
+$eliminarProducto->ctrEliminarProducto();
+
+
+
+
+
+?>
