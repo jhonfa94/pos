@@ -91,10 +91,14 @@ $("#nuevoPrecioCompra").change(function(){
 		//console.log("Valor porcentaje: "+valorPorcentaje);
 
 		var porcentaje = Number(($("#nuevoPrecioCompra").val() * valorPorcentaje / 100)) + Number($("#nuevoPrecioCompra").val());
+		var editarPorcentaje = Number(($("#editarPrecioCompra").val() * valorPorcentaje / 100)) + Number($("#editarPrecioCompra").val());
 		//console.log("Porcentaje => "+porcentaje);
 		
 		$("#nuevoPrecioVenta").val(porcentaje);
 		$("#nuevoPrecioVenta").prop("readonly",true);	
+		
+		$("#editarPrecioVenta").val(editarPorcentaje);
+		$("#editarPrecioVenta").prop("readonly",true);	
 		
 	} 
 
@@ -108,12 +112,17 @@ $(".nuevoPorcentaje").change(function(){
 
 	if ($('.porcentaje').prop("checked")) {
 		if ($('.porcentaje').prop("checked")) {
-			var valorPorcentaje = $(".nuevoPorcentaje").val();
+			var valorPorcentaje = $(this).val();
 				
 			var porcentaje = Number(($("#nuevoPrecioCompra").val() * valorPorcentaje / 100)) + Number($("#nuevoPrecioCompra").val());
+			var editarPorcentaje = Number(($("#editarPrecioCompra").val() * valorPorcentaje / 100)) + Number($("#editarPrecioCompra").val());
 			//console.log("Porcentaje => "+porcentaje);			
+
 			$("#nuevoPrecioVenta").val(porcentaje);
-			$("#nuevoPrecioVenta").prop("readonly",true);				
+			$("#nuevoPrecioVenta").prop("readonly",true);		
+
+			$("#editarPrecioVenta").val(editarPorcentaje);
+			$("#editarPrecioVenta").prop("readonly",true);				
 		} 
 	} 
 
@@ -127,10 +136,12 @@ $(".porcentaje").on( 'change', function() {
         // Hacer algo si el checkbox ha sido seleccionado
 		//alert("El checkbox con valor " + $(this).val() + " ha sido seleccionado");
 		$("#nuevoPrecioVenta").prop("readonly",true);
+		$("#editarPrecioVenta").prop("readonly",true);
     } else {
         // Hacer algo si el checkbox ha sido deseleccionado
 		//alert("El checkbox con valor " + $(this).val() + " ha sido deseleccionado");
 		$("#nuevoPrecioVenta").prop("readonly",false);
+		$("#editarPrecioVenta").prop("readonly",false);
     }
 });
 

@@ -50,8 +50,7 @@
                                 <th>Agregado</th>
                                 <th>Acciones</th>
                             </tr>
-
-                        </thead>
+                        </thead>                        
                         <tbody>
 
                         </tbody>
@@ -358,7 +357,7 @@
                                         <i class="fas fa-arrow-down"></i>
                                     </span>
                                 </div>
-                                <input class="form-control" type="number" step="any" id="editarPrecioVenta" name="editarPrecioVenta" min="0"  required>
+                                <input class="form-control" type="number" step="any" id="editarPrecioVenta" name="editarPrecioVenta" min="0" readonly  required> 
 
                             </div>
 
