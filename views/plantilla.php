@@ -32,9 +32,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="views/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="views/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
-   <!-- iCheck for checkboxes and radio inputs -->
-   <link rel="stylesheet" href="views/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
- 
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="views/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
 
   <!--================================================ 
           PLUGINS JAVASCRIPT   
@@ -55,7 +55,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Sweearlet2 -->
   <script src="views/plugins/sweetalert2/sweetalert2.all.min.js"></script>
- 
+
+
+  <!-- InputMask -->
+  <script src="views/plugins/moment/moment.min.js"></script>
+  <script src="views/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+
 
 
 
@@ -135,6 +140,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src='views/js/usuarios.js'></script>
   <script src='views/js/categorias.js'></script>
   <script src='views/js/productos.js'></script>
+  <script src='views/js/clientes.js'></script>
 </body>
 
 </html>
